@@ -11,7 +11,7 @@
 
 This repository holds the complete, verified source code of the deployed contracts, their tests and the tools to prove the deployed code matches this source.
 
-**[Open the app](https://app.bulmo.xyz)** · **[Website](https://bulmo.xyz)** · **[Security review](SECURITY_REVIEW.md)** · **[Deploy guide](docs/DEPLOYING.md)**
+**[Open the app](https://app.bulmo.xyz)** · **[Website](https://bulmo.xyz)** · **[Security review](SECURITY_REVIEW.md)** · **[Deployments (JSON)](deployments.json)** · **[Deploy guide](docs/DEPLOYING.md)**
 
 ## Highlights
 

@@ -1,0 +1,151 @@
+{
+  "name": "Bulmo Multisend",
+  "description": "Send native coins or ERC-20 tokens to up to 500 wallets in one transaction, at the same contract address on every chain.",
+  "website": "https://bulmo.xyz",
+  "app": "https://app.bulmo.xyz",
+  "source": "https://github.com/BulmoLabs/bulmo-multisend-contracts",
+  "license": "MIT",
+  "deployedAt": "2026-11-22",
+  "deployment": "CREATE2 (0x4e59b44847b379578588920cA78FbF26c0B4956C), identical bytecode, salt and constructor arguments on every chain",
+  "contracts": {
+    "BulmoMultisend": "0xEF37b4902AD3eDc923112BD47C0D776bd2A419B3",
+    "BulmoMultisendFactory": "0xC90079E3C00671B13a8f85d2FC2c9E9A0F3305D9",
+    "BulmoPersonalMultisendImplementation": "0xFd5602187ce9Cd6c53C8469BBB518eBe913b2896"
+  },
+  "compiler": {
+    "solc": "0.8.28",
+    "evmVersion": "paris",
+    "optimizerRuns": 10000,
+    "bytecodeHash": "none",
+    "cborMetadata": false
+  },
+  "chains": [
+    {
+      "name": "Ethereum",
+      "chainId": 1,
+      "nativeCoin": "ETH",
+      "explorer": "https://etherscan.io",
+      "contracts": {
+        "BulmoMultisend": "https://etherscan.io/address/0xEF37b4902AD3eDc923112BD47C0D776bd2A419B3",
+        "BulmoMultisendFactory": "https://etherscan.io/address/0xC90079E3C00671B13a8f85d2FC2c9E9A0F3305D9",
+        "BulmoPersonalMultisendImplementation": "https://etherscan.io/address/0xFd5602187ce9Cd6c53C8469BBB518eBe913b2896"
+      },
+      "paidSendsOpen": true
+    },
+    {
+      "name": "BNB Chain",
+      "chainId": 56,
+      "nativeCoin": "BNB",
+      "explorer": "https://bscscan.com",
+      "contracts": {
+        "BulmoMultisend": "https://bscscan.com/address/0xEF37b4902AD3eDc923112BD47C0D776bd2A419B3",
+        "BulmoMultisendFactory": "https://bscscan.com/address/0xC90079E3C00671B13a8f85d2FC2c9E9A0F3305D9",
+        "BulmoPersonalMultisendImplementation": "https://bscscan.com/address/0xFd5602187ce9Cd6c53C8469BBB518eBe913b2896"
+      },
+      "paidSendsOpen": true
+    },
+    {
+      "name": "Base",
+      "chainId": 8453,
+      "nativeCoin": "ETH",
+      "explorer": "https://basescan.org",
+      "contracts": {
+        "BulmoMultisend": "https://basescan.org/address/0xEF37b4902AD3eDc923112BD47C0D776bd2A419B3",
+        "BulmoMultisendFactory": "https://basescan.org/address/0xC90079E3C00671B13a8f85d2FC2c9E9A0F3305D9",
+        "BulmoPersonalMultisendImplementation": "https://basescan.org/address/0xFd5602187ce9Cd6c53C8469BBB518eBe913b2896"
+      },
+      "paidSendsOpen": true
+    },
+    {
+      "name": "Arbitrum One",
+      "chainId": 42161,
+      "nativeCoin": "ETH",
+      "explorer": "https://arbiscan.io",
+      "contracts": {
+        "BulmoMultisend": "https://arbiscan.io/address/0xEF37b4902AD3eDc923112BD47C0D776bd2A419B3",
+        "BulmoMultisendFactory": "https://arbiscan.io/address/0xC90079E3C00671B13a8f85d2FC2c9E9A0F3305D9",
+        "BulmoPersonalMultisendImplementation": "https://arbiscan.io/address/0xFd5602187ce9Cd6c53C8469BBB518eBe913b2896"
+      },
+      "paidSendsOpen": true
+    },
+    {
+      "name": "HyperEVM",
+      "chainId": 999,
+      "nativeCoin": "HYPE",
+      "explorer": "https://hyperevmscan.io",
+      "contracts": {
+        "BulmoMultisend": "https://hyperevmscan.io/address/0xEF37b4902AD3eDc923112BD47C0D776bd2A419B3",
+        "BulmoMultisendFactory": "https://hyperevmscan.io/address/0xC90079E3C00671B13a8f85d2FC2c9E9A0F3305D9",
+        "BulmoPersonalMultisendImplementation": "https://hyperevmscan.io/address/0xFd5602187ce9Cd6c53C8469BBB518eBe913b2896"
+      },
+      "paidSendsOpen": true
+    },
+    {
+      "name": "Robinhood Chain",
+      "chainId": 4663,
+      "nativeCoin": "ETH",
+      "explorer": "https://robinhoodchain.blockscout.com",
+      "contracts": {
+        "BulmoMultisend": "https://robinhoodchain.blockscout.com/address/0xEF37b4902AD3eDc923112BD47C0D776bd2A419B3",
+        "BulmoMultisendFactory": "https://robinhoodchain.blockscout.com/address/0xC90079E3C00671B13a8f85d2FC2c9E9A0F3305D9",
+        "BulmoPersonalMultisendImplementation": "https://robinhoodchain.blockscout.com/address/0xFd5602187ce9Cd6c53C8469BBB518eBe913b2896"
+      },
+      "paidSendsOpen": true
+    },
+    {
+      "name": "Elysium",
+      "chainId": 99901,
+      "nativeCoin": "HYPE",
+      "explorer": "https://elysium.kinetiq.xyz",
+      "contracts": {
+        "BulmoMultisend": "https://elysium.kinetiq.xyz/address/0xEF37b4902AD3eDc923112BD47C0D776bd2A419B3",
+        "BulmoMultisendFactory": "https://elysium.kinetiq.xyz/address/0xC90079E3C00671B13a8f85d2FC2c9E9A0F3305D9",
+        "BulmoPersonalMultisendImplementation": "https://elysium.kinetiq.xyz/address/0xFd5602187ce9Cd6c53C8469BBB518eBe913b2896"
+      },
+      "paidSendsOpen": false
+    }
+  ],
+  "fees": {
+    "currency": "USD, paid in the chain's native coin at the live Chainlink price",
+    "perTransaction": [
+      {
+        "recipients": "1-5",
+        "usd": 0
+      },
+      {
+        "recipients": "6-20",
+        "usd": 10
+      },
+      {
+        "recipients": "21-50",
+        "usd": 19
+      },
+      {
+        "recipients": "51-500",
+        "usd": 49
+      }
+    ],
+    "maxFeeUsdPerTransaction": 100,
+    "capsOnlyDecrease": true,
+    "personalMultisendUsd": 49,
+    "personalMultisendNote": "one-time purchase per chain; no fees on sends"
+  },
+  "limits": {
+    "maxRecipientsPerTransaction": 500,
+    "maxTeamWalletsPerPersonalMultisend": 5
+  },
+  "security": {
+    "thirdPartyAudit": false,
+    "internalReview": "SECURITY_REVIEW.md",
+    "tests": 179,
+    "coverage": "100% lines, statements, branches and functions",
+    "echidna": "15 properties held over 500,000 calls",
+    "slither": "0 high; all other results reviewed as by design or false positive",
+    "mythril": "0 issues on all three contracts",
+    "reproducibleBytecode": "21 of 21 deployments match (script/verify-bytecode.sh)",
+    "upgradeable": false,
+    "pausable": false,
+    "holdsUserFunds": false,
+    "vulnerabilityReports": "contact@bulmo.xyz"
+  }
+}

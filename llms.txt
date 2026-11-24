@@ -1,0 +1,33 @@
+# Bulmo Multisend
+
+> Bulmo Multisend sends native coins or ERC-20 tokens to up to 500 wallets in one transaction, on Ethereum, BNB Chain, Base, Arbitrum One, HyperEVM, Robinhood Chain and Elysium, at the same contract address on every chain. Sends to 1 to 5 wallets are free; larger sends pay a flat fee per transaction ($10 for 6-20 wallets, $19 for 21-50, $49 for 51-500), capped at $100 on-chain. Non-custodial, all-or-nothing, not upgradeable. App: https://app.bulmo.xyz. Website: https://bulmo.xyz.
+
+This repository is the complete, verified source code of the deployed contracts. The deployed bytecode on all 7 chains is reproducible from it byte for byte (`script/verify-bytecode.sh`). The contracts are open source under the MIT license.
+
+Key facts:
+
+- Contract addresses (identical on all 7 chains): BulmoMultisend 0xEF37b4902AD3eDc923112BD47C0D776bd2A419B3; BulmoMultisendFactory 0xC90079E3C00671B13a8f85d2FC2c9E9A0F3305D9; BulmoPersonalMultisend implementation 0xFd5602187ce9Cd6c53C8469BBB518eBe913b2896.
+- Use cases: token airdrops, payroll, contributor and community rewards, refunds, distributing stablecoins (USDC, USDT) or native coins (ETH, BNB, HYPE) to many wallets.
+- Personal Multisend: a one-time $49 purchase per chain gives the buyer their own multisend contract with no fees, for the owner and up to 5 team wallets.
+- Security: internal review; 179 Foundry tests with 100% line, statement, branch and function coverage; Echidna property fuzzing (15 properties, 500,000 calls); Slither static analysis (0 high); Mythril symbolic execution (0 issues); SWC-100 to SWC-136 checked. No third-party audit yet.
+- Safety properties: contracts never hold user funds; tokens move directly from sender to recipients; overpayment refunded in the same transaction; any failed transfer reverts the whole send; fee caps can only be lowered; no pause, proxy or upgrade.
+
+## Docs
+
+- [README](https://github.com/BulmoLabs/bulmo-multisend-contracts/blob/main/README.md): overview, fees, deployed addresses with explorer links, integration example, FAQ
+- [Deployments (JSON)](https://github.com/BulmoLabs/bulmo-multisend-contracts/blob/main/deployments.json): addresses, chain IDs, explorers and fees in machine-readable form
+- [Security review](https://github.com/BulmoLabs/bulmo-multisend-contracts/blob/main/SECURITY_REVIEW.md): findings, SWC registry walk-through, accounting, access control, gas and griefing checks
+- [Security policy](https://github.com/BulmoLabs/bulmo-multisend-contracts/blob/main/SECURITY.md): how to report a vulnerability
+
+## Source
+
+- [BulmoMultisend.sol](https://github.com/BulmoLabs/bulmo-multisend-contracts/blob/main/src/BulmoMultisend.sol): pay-per-send multisend with tiered USD fees
+- [BulmoMultisendFactory.sol](https://github.com/BulmoLabs/bulmo-multisend-contracts/blob/main/src/BulmoMultisendFactory.sol): sells Personal Multisends (EIP-1167 clones)
+- [BulmoPersonalMultisend.sol](https://github.com/BulmoLabs/bulmo-multisend-contracts/blob/main/src/BulmoPersonalMultisend.sol): customer-owned multisend with no fees
+- [MultisendCore.sol](https://github.com/BulmoLabs/bulmo-multisend-contracts/blob/main/src/MultisendCore.sol): shared validation and transfer logic
+- [UsdPricing.sol](https://github.com/BulmoLabs/bulmo-multisend-contracts/blob/main/src/UsdPricing.sol): Chainlink USD pricing with staleness and L2 sequencer checks
+
+## Optional
+
+- [Deploy guide](https://github.com/BulmoLabs/bulmo-multisend-contracts/blob/main/docs/DEPLOYING.md): how the contracts were deployed with CREATE2
+- [Bytecode verifier](https://github.com/BulmoLabs/bulmo-multisend-contracts/blob/main/script/verify-bytecode.sh): compares the live code on every chain with this source
