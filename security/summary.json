@@ -1,0 +1,112 @@
+{
+  "project": "Bulmo Multisend",
+  "report": "security/README.md",
+  "date": "2026-11-24",
+  "type": "internal testing, not a third-party audit",
+  "thirdPartyAudit": false,
+  "contracts": {
+    "BulmoMultisend": "0xEF37b4902AD3eDc923112BD47C0D776bd2A419B3",
+    "BulmoMultisendFactory": "0xC90079E3C00671B13a8f85d2FC2c9E9A0F3305D9",
+    "BulmoPersonalMultisend": "0xFd5602187ce9Cd6c53C8469BBB518eBe913b2896"
+  },
+  "chains": [
+    "Ethereum",
+    "BNB Chain",
+    "Base",
+    "Arbitrum One",
+    "HyperEVM",
+    "Robinhood Chain",
+    "Elysium"
+  ],
+  "sourceSha256": {
+    "src/MultisendCore.sol": "f6d82cd2152220ef0803e559d646087d990abca3f23e36cd26c40f71af41b14c",
+    "src/UsdPricing.sol": "7965493c47a5a7b672819785e99251b1032d13dbc5a096bfa94979e57024358e",
+    "src/BulmoMultisend.sol": "0a8f14ce45d1279455b970253ee6a35d9013b8db7543f0ff44cdef3a1a749216",
+    "src/BulmoMultisendFactory.sol": "4fb169efff102e0aed22a8369e9b4b54ea9774d59084f931f5248b4f5bf8cf91",
+    "src/BulmoPersonalMultisend.sol": "fd9f467fea2f9cb5053b07c27ffa8a3c5c22a551e7540506718e7b0d989b4910"
+  },
+  "results": {
+    "reproducibleBytecode": {
+      "tool": "script/verify-bytecode.sh",
+      "checked": 21,
+      "matched": 21,
+      "note": "3 contracts x 7 chains"
+    },
+    "tests": {
+      "tool": "Foundry 1.5.1",
+      "passing": 179,
+      "failing": 0,
+      "fuzzRuns": 10000,
+      "invariantRuns": 512,
+      "invariantDepth": 64
+    },
+    "deepTests": {
+      "tool": "Foundry 1.5.1",
+      "fuzzRuns": 100000,
+      "invariantRuns": 2000,
+      "invariantDepth": 128,
+      "result": "all passing"
+    },
+    "coverage": {
+      "tool": "forge coverage",
+      "scope": "src/",
+      "lines": "100% (293/293)",
+      "statements": "100% (349/349)",
+      "branches": "100% (71/71)",
+      "functions": "100% (57/57)"
+    },
+    "medusa": {
+      "tool": "Medusa 1.5.1",
+      "properties": 10,
+      "fuzzedFunctions": 14,
+      "calls": 10055497,
+      "failures": 0
+    },
+    "echidna": {
+      "tool": "Echidna 2.4.0",
+      "properties": 10,
+      "fuzzedFunctions": 14,
+      "calls": 500000,
+      "failures": 0
+    },
+    "halmos": {
+      "tool": "Halmos 0.3.3",
+      "proofs": 8,
+      "proven": 7,
+      "inconclusive": 1,
+      "failed": 0,
+      "inconclusiveNote": "S1 (USD to coin rounding) timed out in the solver; covered by fuzzing and unit tests"
+    },
+    "slither": {
+      "tool": "Slither 0.11.6",
+      "high": 0,
+      "medium": 6,
+      "low": 9,
+      "informational": 4,
+      "unresolved": 0,
+      "note": "every result reviewed: by design or false positive"
+    },
+    "mythril": {
+      "tool": "Mythril 0.24.8",
+      "contracts": 3,
+      "issues": 0
+    },
+    "swcRegistry": {
+      "range": "SWC-100 to SWC-136",
+      "method": "manual",
+      "details": "SECURITY_REVIEW.md"
+    }
+  },
+  "properties": {
+    "upgradeable": false,
+    "pausable": false,
+    "proxy": false,
+    "holdsUserFunds": false,
+    "allOrNothing": true,
+    "maxFeeUsdPerTransaction": 100,
+    "feeCapsOnlyDecrease": true,
+    "ownerCanMoveUserFunds": false,
+    "ownership": "single key today; Safe multisig planned"
+  },
+  "vulnerabilityReports": "contact@bulmo.xyz"
+}

@@ -139,13 +139,17 @@
     "internalReview": "SECURITY_REVIEW.md",
     "tests": 179,
     "coverage": "100% lines, statements, branches and functions",
-    "echidna": "15 properties held over 500,000 calls",
     "slither": "0 high; all other results reviewed as by design or false positive",
     "mythril": "0 issues on all three contracts",
     "reproducibleBytecode": "21 of 21 deployments match (script/verify-bytecode.sh)",
     "upgradeable": false,
     "pausable": false,
     "holdsUserFunds": false,
-    "vulnerabilityReports": "contact@bulmo.xyz"
+    "vulnerabilityReports": "contact@bulmo.xyz",
+    "report": "security/README.md",
+    "summary": "security/summary.json",
+    "propertyFuzzing": "10 properties, 0 failures over 10,055,497 Medusa calls and 500,000 Echidna calls",
+    "halmos": "7 of 8 symbolic proofs proven for all inputs; 1 inconclusive (solver timeout)",
+    "deepTests": "all 179 pass at 100,000 fuzz runs and 2,000 x 128 invariant calls"
   }
 }

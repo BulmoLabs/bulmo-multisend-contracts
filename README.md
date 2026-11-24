@@ -11,7 +11,7 @@
 
 This repository holds the complete, verified source code of the deployed contracts, their tests and the tools to prove the deployed code matches this source.
 
-**[Open the app](https://app.bulmo.xyz)** · **[Website](https://bulmo.xyz)** · **[Security review](SECURITY_REVIEW.md)** · **[Deployments (JSON)](deployments.json)** · **[Deploy guide](docs/DEPLOYING.md)**
+**[Open the app](https://app.bulmo.xyz)** · **[Website](https://bulmo.xyz)** · **[Security report](security/README.md)** · **[Deployments (JSON)](deployments.json)** · **[Deploy guide](docs/DEPLOYING.md)**
 
 ## Highlights
 
@@ -58,13 +58,14 @@ Source is verified on Sourcify and on every chain's block explorer.
 
 ## Security
 
-The contracts have been through an internal review and a broad set of automated checks. **They have not been audited by a third party.** Every result below can be reproduced from this repository; details and the full SWC registry walk-through are in [SECURITY_REVIEW.md](SECURITY_REVIEW.md).
+The contracts have been through an internal review and a broad set of automated checks. **They have not been audited by a third party.** Every result below can be reproduced from this repository. Full report with tool versions, settings and the triage of every finding: **[security/README.md](security/README.md)** ([JSON](security/summary.json)). Manual review and SWC registry walk-through: [SECURITY_REVIEW.md](SECURITY_REVIEW.md).
 
 | Check | Tool | Result |
 | --- | --- | --- |
 | Unit, fuzz and invariant tests | Foundry | 179 tests passing; fuzz tests at 10,000 runs each (100,000 in the `deep` profile); invariants at 512 runs x 64 calls (2,000 x 128 in `deep`) |
 | Test coverage | `forge coverage` | 100% of lines, statements, branches and functions in `src/` |
-| Property-based fuzzing | Echidna 2.4.0 | 15 properties held over 500,000 random calls (harness: [`test/echidna/`](test/echidna)) |
+| Property-based fuzzing | Medusa 1.5.1 and Echidna 2.4.0 | 10 properties held over 10,055,497 (Medusa) and 500,000 (Echidna) random calls, 0 failures (harness: [`test/echidna/`](test/echidna)) |
+| Formal verification | Halmos 0.3.3 | 7 of 8 symbolic proofs proven for all inputs; 1 inconclusive (solver timeout), covered by fuzzing |
 | Static analysis | Slither 0.11.6 | 0 high; every medium, low and informational result reviewed: by design or false positive |
 | Symbolic execution | Mythril | 0 issues on all three deployed contracts |
 | SWC registry | Manual review | SWC-100 to SWC-136 checked one by one |
@@ -201,7 +202,7 @@ The Bulmo app splits long lists into batches that fit each chain's block gas lim
 ## FAQ
 
 **Is Bulmo Multisend audited?**
-Not by a third party yet. The code has an internal review, 100% test coverage, property fuzzing with Echidna, static analysis with Slither and symbolic execution with Mythril, and the deployed bytecode is reproducible from this repository. See [Security](#security).
+Not by a third party yet. The code has an internal review, 100% test coverage, over 10 million property-fuzzing calls (Medusa and Echidna), symbolic proofs (Halmos), static analysis (Slither) and symbolic execution (Mythril), and the deployed bytecode is reproducible from this repository. See the [security report](security/README.md). See [Security](#security).
 
 **Can Bulmo take my tokens or coins?**
 No. The contracts only move tokens from the caller to the recipients the caller lists, in the same transaction. There is no upgrade, no pause and no function that can spend a user's approval. The owner can only set fees within the $100 cap, pick the price source and treasury, and recover coins or tokens sent to the contract by mistake.

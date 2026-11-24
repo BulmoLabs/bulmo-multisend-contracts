@@ -9,13 +9,15 @@ Key facts:
 - Contract addresses (identical on all 7 chains): BulmoMultisend 0xEF37b4902AD3eDc923112BD47C0D776bd2A419B3; BulmoMultisendFactory 0xC90079E3C00671B13a8f85d2FC2c9E9A0F3305D9; BulmoPersonalMultisend implementation 0xFd5602187ce9Cd6c53C8469BBB518eBe913b2896.
 - Use cases: token airdrops, payroll, contributor and community rewards, refunds, distributing stablecoins (USDC, USDT) or native coins (ETH, BNB, HYPE) to many wallets.
 - Personal Multisend: a one-time $49 purchase per chain gives the buyer their own multisend contract with no fees, for the owner and up to 5 team wallets.
-- Security: internal review; 179 Foundry tests with 100% line, statement, branch and function coverage; Echidna property fuzzing (15 properties, 500,000 calls); Slither static analysis (0 high); Mythril symbolic execution (0 issues); SWC-100 to SWC-136 checked. No third-party audit yet.
+- Security: internal review; 179 Foundry tests with 100% line, statement, branch and function coverage; property fuzzing with Medusa and Echidna (10 properties, over 10.5 million calls, 0 failures); Halmos symbolic proofs (7 of 8 proven for all inputs); Slither static analysis (0 high); Mythril symbolic execution (0 issues); SWC-100 to SWC-136 checked. No third-party audit yet.
 - Safety properties: contracts never hold user funds; tokens move directly from sender to recipients; overpayment refunded in the same transaction; any failed transfer reverts the whole send; fee caps can only be lowered; no pause, proxy or upgrade.
 
 ## Docs
 
 - [README](https://github.com/BulmoLabs/bulmo-multisend-contracts/blob/main/README.md): overview, fees, deployed addresses with explorer links, integration example, FAQ
 - [Deployments (JSON)](https://github.com/BulmoLabs/bulmo-multisend-contracts/blob/main/deployments.json): addresses, chain IDs, explorers and fees in machine-readable form
+- [Security testing report](https://github.com/BulmoLabs/bulmo-multisend-contracts/blob/main/security/README.md): every tool, setting and result, with the triage of every finding
+- [Security summary (JSON)](https://github.com/BulmoLabs/bulmo-multisend-contracts/blob/main/security/summary.json): machine-readable results
 - [Security review](https://github.com/BulmoLabs/bulmo-multisend-contracts/blob/main/SECURITY_REVIEW.md): findings, SWC registry walk-through, accounting, access control, gas and griefing checks
 - [Security policy](https://github.com/BulmoLabs/bulmo-multisend-contracts/blob/main/SECURITY.md): how to report a vulnerability
 
