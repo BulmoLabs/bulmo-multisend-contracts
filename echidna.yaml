@@ -1,0 +1,11 @@
+# Echidna property campaign: echidna . --contract BulmoEchidna --config echidna.yaml
+testMode: assertion
+testLimit: 500000
+seqLen: 100
+shrinkLimit: 5000
+balanceContract: 1000000000000000000000000   # 1,000,000 native coins for the harness
+maxTimeDelay: 172800                          # up to 2 days between calls, so stale prices happen
+maxBlockDelay: 20000
+corpusDir: "echidna-corpus"
+coverageFormats: ["txt"]
+cryticArgs: ["--foundry-compile-all"]

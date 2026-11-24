@@ -1,0 +1,19 @@
+# Build output
+out/
+out-pricing/
+cache/
+cache-pricing/
+crytic-export/
+abi/
+
+# Deploy logs (contain local paths)
+broadcast/
+
+# Secrets: never commit
+.env
+
+# Fuzzer and tool output
+echidna-corpus/
+medusa-corpus/
+corpus/
+*.log

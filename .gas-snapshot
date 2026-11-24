@@ -1,0 +1,4 @@
+BulmoMultisendTest:test_gas_native_250() (gas: 9606634)
+BulmoMultisendTest:test_gas_token_250() (gas: 7631713)
+FactoryTest:test_gas_createPersonal() (gas: 227088)
+FactoryTest:test_gas_personal_token_250() (gas: 7839927)
